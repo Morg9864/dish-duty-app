@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Calendar, Utensils } from "lucide-react"
 import DailyView from "@/components/daily-view"
 import WeeklyView from "@/components/weekly-view"
+import Image from "next/image"
 
 export default function Home() {
   const [currentView, setCurrentView] = useState<"daily" | "weekly">("daily")
@@ -21,10 +22,10 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <Utensils className="w-5 h-5 text-white" />
+              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                <Image src="dish-duty-logo.png" alt="Dish Duty" width={48} height={48} className="bg-white"/>
               </div>
-              <h1 className="text-xl font-semibold text-gray-900">Dish Duty</h1>
+              <h1 className="text-xl font-semibold text-gray-900">À qui le tour ?</h1>
             </motion.div>
 
             <motion.button
