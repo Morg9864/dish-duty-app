@@ -10,6 +10,7 @@ export default function OneSignalProvider({ children }: { children: React.ReactN
           appId: process.env.NEXT_PUBLIC_ONESIGNAL_APP_ID,
           notifyButton: {
             enable: true,
+            displayPredicate: function() { return true; }
           },
           allowLocalhostAsSecureOrigin: true,
         });
