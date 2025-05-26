@@ -3,8 +3,8 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Calendar, Utensils } from "lucide-react"
-import DailyView from "./components/daily-view"
-import WeeklyView from "./components/weekly-view"
+import DailyView from "@/components/daily-view"
+import WeeklyView from "@/components/weekly-view"
 
 export default function Home() {
   const [currentView, setCurrentView] = useState<"daily" | "weekly">("daily")

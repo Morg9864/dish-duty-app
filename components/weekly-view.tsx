@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { CalendarIcon } from "lucide-react"
-import { getDishPerson, getWeekDays, getDayName } from "../lib/utils"
+import { getDishPerson, getWeekDays, getDayName } from "@/lib/utils"
 
 export default function WeeklyView() {
   const weekDays = getWeekDays()

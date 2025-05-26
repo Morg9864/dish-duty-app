@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Utensils, User, CalendarIcon } from "lucide-react"
-import { getDishPerson, formatDate, getDayName } from "../lib/utils"
+import { getDishPerson, formatDate, getDayName } from "@/lib/utils"
 
 export default function DailyView() {
   const today = new Date()
