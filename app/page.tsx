@@ -24,7 +24,7 @@ export default function Home() {
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <Utensils className="w-5 h-5 text-white" />
               </div>
-              <h1 className="text-xl font-semibold text-gray-900">Planning Vaisselle</h1>
+              <h1 className="text-xl font-semibold text-gray-900">Dish Duty</h1>
             </motion.div>
 
             <motion.button
