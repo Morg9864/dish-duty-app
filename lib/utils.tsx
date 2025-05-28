@@ -36,7 +36,7 @@ export function getWeekDays(): Date[] {
   const daysToMonday = currentDay === 0 ? -6 : 1 - currentDay
   monday.setDate(today.getDate() + daysToMonday)
 
-  const weekDays = []
+  const weekDays: Date[] = []
   for (let i = 0; i < 7; i++) {
     const day = new Date(monday)
     day.setDate(monday.getDate() + i)
