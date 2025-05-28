@@ -6,6 +6,7 @@ import { Calendar, Utensils } from "lucide-react"
 import DailyView from "@/components/daily-view"
 import WeeklyView from "@/components/weekly-view"
 import Image from "next/image"
+import { TestNotificationButton } from "@/components/TestNotificationButton"
 
 export default function Home() {
   const [currentView, setCurrentView] = useState<"daily" | "weekly">("daily")
@@ -28,14 +29,16 @@ export default function Home() {
               <h1 className="text-xl font-semibold text-gray-900">À qui le tour ?</h1>
             </motion.div>
 
-            <motion.button
-              onClick={() => setCurrentView(currentView === "daily" ? "weekly" : "daily")}
-              className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Calendar className="w-5 h-5 text-gray-600" />
-            </motion.button>
+            <div className="flex items-center gap-2">
+              <motion.button
+                onClick={() => setCurrentView(currentView === "daily" ? "weekly" : "daily")}
+                className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Calendar className="w-5 h-5 text-gray-600" />
+              </motion.button>
+            </div>
           </div>
         </div>
       </header>
@@ -94,6 +97,8 @@ export default function Home() {
               <Calendar className="w-5 h-5" />
               <span className="text-xs font-medium">Semaine</span>
             </motion.button>
+            <TestNotificationButton />
+
           </div>
         </div>
       </nav>
