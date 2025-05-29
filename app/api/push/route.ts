@@ -31,7 +31,7 @@ export async function POST() {
   for (const sub of subs) {
     await webPush.sendNotification(sub.subscription, JSON.stringify({
       title: `C'est au tour de ${targetName} de faire la vaisselle aujourd'hui !`,
-      body: `Merci de ta participation !`,
+      body: `Merci de ta participation ! `,
     }));
   }
   return NextResponse.json({ ok: true, sent: subs.length });
