@@ -6,6 +6,7 @@ import { Calendar, Utensils } from "lucide-react"
 import DailyView from "@/components/daily-view"
 import WeeklyView from "@/components/weekly-view"
 import Image from "next/image"
+import PushSubscribe from "@/components/PushSubscribe"
 
 export default function Home() {
   const [currentView, setCurrentView] = useState<"daily" | "weekly">("daily")
@@ -39,6 +40,11 @@ export default function Home() {
           </div>
         </div>
       </header>
+
+      {/* Push Subscribe */}
+      <div className="max-w-md mx-auto w-full px-4 py-4">
+        <PushSubscribe />
+      </div>
 
       {/* Main Content */}
       <main className="flex-1 max-w-md mx-auto w-full px-4 py-6">
