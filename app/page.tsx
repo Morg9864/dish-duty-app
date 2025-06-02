@@ -6,6 +6,7 @@ import { Calendar, Utensils, Bell } from "lucide-react"
 import DailyView from "@/components/daily-view"
 import WeeklyView from "@/components/weekly-view"
 import Image from "next/image"
+import { toast } from "@/hooks/use-toast"
 
 function urlBase64ToUint8Array(base64String: string) {
   const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
@@ -53,7 +54,10 @@ export default function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sub: serializedSub }),
       })
-      alert('Abonnement aux notifications réussi !')
+      toast({
+        title: "Abonnement réussi",
+        description: "Vous êtes maintenant abonné aux notifications push !"
+      })
     }
   }
 
