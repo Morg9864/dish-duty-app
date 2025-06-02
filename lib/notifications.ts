@@ -1,7 +1,13 @@
 import webpush from 'web-push'
 import type { PushSubscription as WebPushSubscription } from 'web-push'
-import fs from 'fs'
-import path from 'path'
+import mongoose from 'mongoose'
+import Subscription from './models/Subscription'
+
+const MONGO_URI = process.env.MONGO_URI!
+
+if (!mongoose.connection.readyState) {
+  mongoose.connect(MONGO_URI, { dbName: 'data' })
+}
 
 console.log('VAPID PUBLIC:', process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY)
 console.log('VAPID PRIVATE:', process.env.VAPID_PRIVATE_KEY)
@@ -12,35 +18,19 @@ webpush.setVapidDetails(
   process.env.VAPID_PRIVATE_KEY!
 )
 
-const SUBS_FILE = path.join(process.cwd(), 'lib', 'subscriptions.json')
-
-function readSubscriptions(): WebPushSubscription[] {
-  try {
-    const data = fs.readFileSync(SUBS_FILE, 'utf-8')
-    return JSON.parse(data)
-  } catch {
-    return []
-  }
-}
-
-function writeSubscriptions(subs: WebPushSubscription[]) {
-  fs.writeFileSync(SUBS_FILE, JSON.stringify(subs, null, 2), 'utf-8')
-}
-
-export function subscribeUser(sub: WebPushSubscription) {
-  const subs = readSubscriptions()
-  // On évite les doublons (même endpoint)
-  if (!subs.find(s => s.endpoint === sub.endpoint)) {
-    subs.push(sub)
-    writeSubscriptions(subs)
-  }
+export async function subscribeUser(sub: WebPushSubscription) {
+  // Upsert la souscription (évite les doublons)
+  await Subscription.updateOne(
+    { endpoint: sub.endpoint },
+    { $set: sub },
+    { upsert: true }
+  )
   return { success: true }
 }
 
 export async function sendNotification(message: string) {
-  const subs = readSubscriptions()
+  const subs = await Subscription.find().lean()
   console.log('Envoi notification à', subs.length, 'abonnés');
-  // consolelog le endpoint de chaque souscription
   subs.forEach(sub => {
     console.log('Endpoint:', sub.endpoint)
   })
@@ -50,20 +40,14 @@ export async function sendNotification(message: string) {
   })
   console.log('Payload envoyé :', payload)
   const results = await Promise.allSettled(
-    subs.map(sub =>
-      webpush.sendNotification(sub, payload).catch(e => {
+    subs.map(({ endpoint, keys, expirationTime }) =>
+      webpush.sendNotification({ endpoint, keys, expirationTime }, payload).catch(e => {
         console.error('Erreur webpush:', e)
         throw e
       })
     )
   )
-  // Nettoyage des souscriptions invalides
-  const validSubs = subs.filter((_, i) => {
-    const r = results[i]
-    return !(r.status === 'rejected' && String(r.reason).includes('410'))
-  })
-  if (validSubs.length !== subs.length) {
-    writeSubscriptions(validSubs)
-  }
-  return { success: true, sent: validSubs.length }
+  // Nettoyage des souscriptions invalides (optionnel)
+  // TODO: supprimer les souscriptions en erreur 410 si besoin
+  return { success: true, sent: subs.length }
 } 
