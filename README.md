@@ -8,7 +8,7 @@
 </p>
 <p align="center">
   <b>L'application familiale ultime pour ne plus jamais se disputer la vaisselle !</b><br>
-  <a href="https://ton-site-dish-duty.com" target="_blank">Voir le site en ligne 🚀</a>
+  <a href="https://dishduty.one" target="_blank">Voir le site en ligne 🚀</a>
 </p>
 
 ---
@@ -101,13 +101,13 @@ git clone https://github.com/ton-utilisateur/dish-duty-app.git
 cd dish-duty-app
 
 # Installe les dépendances
-npm install
+(p)npm install
 
 # Copie le .env.example et configure tes clés
 cp .env.example .env.local
 
 # Lance le serveur de dev
-npm run dev
+(p)npm run dev
 ```
 
 ---
@@ -127,21 +127,39 @@ npm run dev
 
 ```
 /app
-  /components
-    MobileLayout.tsx
-    DesktopLayout.tsx
-    daily-view.tsx
-    weekly-view.tsx
-    ui/
-  /api
-  /lib
-  /public
-    /screenshot
-      all-devices.png
-      daily-view.png
-      weekly-view.png
-      ...
-    dish-duty-logo.png
+  page.tsx                # Page principale (point d'entrée)
+  layout.tsx              # Layout global de l'app
+  /api/                   # Endpoints API (push, admin, etc.)
+  /admin/                 # Pages et outils d'administration
+
+/components
+  DesktopLayout.tsx       # Layout desktop
+  MobileLayout.tsx        # Layout mobile
+  daily-view.tsx          # Vue quotidienne
+  weekly-view.tsx         # Vue hebdomadaire
+  PushNotifications.tsx   # Gestion des notifications push
+  theme-provider.tsx      # Gestion du thème (dark/light)
+  /ui/                    # Composants UI réutilisables (skeleton, button, etc.)
+
+/hooks
+  use-mobile.tsx          # Hook pour détecter le mobile
+  use-toast.ts            # Hook pour les toasts/notifications
+
+/lib
+  utils.ts                # Fonctions utilitaires (planning, formatage, etc.)
+  notifications.ts        # Logique notifications push
+  /models/                # Modèles Mongoose (MongoDB)
+
+/public
+  /screenshot/            # Screenshots pour la doc et le marketing
+    all-devices.png
+    daily-view.png
+    weekly-view.png
+    ...
+  dish-duty-logo.png      # Logo principal de l'app
+  sw.js                   # Service Worker pour les notifications push
+  favicon.ico             # Favicon
+  site.webmanifest        # Manifest PWA
 ```
 
 ---
@@ -170,8 +188,8 @@ npm run dev
 
 ## 📬 Contact & support
 
-- [Ouvre une issue sur GitHub](https://github.com/ton-utilisateur/dish-duty-app/issues)
-- Contacte-moi sur [ton-email@exemple.com](mailto:ton-email@exemple.com)
+- [Ouvre une issue sur GitHub](https://github.com/Morg9864/dish-duty-app/issues)
+- Contacte-moi sur [morgan.phemba@gmail.com](mailto:morgan.phemba@gmail.com)
 
 ---
 
