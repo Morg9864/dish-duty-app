@@ -2,6 +2,7 @@ import webpush from 'web-push'
 import type { PushSubscription as WebPushSubscription } from 'web-push'
 import mongoose from 'mongoose'
 import Subscription from './models/Subscription'
+import { getDishPerson } from './utils'
 
 const MONGO_URI = process.env.MONGO_URI!
 
@@ -31,9 +32,10 @@ export async function sendNotification(message: string) {
   subs.forEach(sub => {
     console.log('Endpoint:', sub.endpoint)
   })
+  const person = getDishPerson(new Date())
   const payload = JSON.stringify({
-    title: 'Test Notification',
-    body: message
+    title: 'Il est l\'heure de faire la vaisselle',
+    body: `C'est au tour de ${person} de faire la vaisselle`
   })
   console.log('Payload envoyé :', payload)
   const results = await Promise.allSettled(
