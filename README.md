@@ -140,8 +140,8 @@ npx web-push generate-vapid-keys
   /admin/                 # Pages et outils d'administration
 
 /components
-  DesktopLayout.tsx       # Layout desktop
-  MobileLayout.tsx        # Layout mobile
+  desktop-layout.tsx      # Layout desktop
+  mobile-layout.tsx       # Layout mobile
   daily-view.tsx          # Vue quotidienne
   weekly-view.tsx         # Vue hebdomadaire
   PushNotifications.tsx   # Gestion des notifications push
