@@ -6,7 +6,7 @@ import { Calendar, Utensils, Bell } from "lucide-react"
 import DailyView from "@/components/daily-view"
 import WeeklyView from "@/components/weekly-view"
 import Image from "next/image"
-import { toast } from "@/hooks/use-toast"
+import { Toaster, toast } from 'react-hot-toast'
 
 function urlBase64ToUint8Array(base64String: string) {
   const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
@@ -54,10 +54,7 @@ export default function Home() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sub: serializedSub }),
       })
-      toast({
-        title: "Abonnement réussi",
-        description: "Vous êtes maintenant abonné aux notifications push !"
-      })
+      toast.success("Vous êtes maintenant abonné aux notifications push !")
     }
   }
 
@@ -75,6 +72,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
+      <Toaster />
       {/* Header */}
       <header className="bg-white shadow-sm border-b border-gray-100">
         <div className="max-w-md mx-auto px-4 py-4">

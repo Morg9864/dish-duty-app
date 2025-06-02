@@ -9,11 +9,8 @@ if (!mongoose.connection.readyState) {
   mongoose.connect(MONGO_URI, { dbName: 'data' })
 }
 
-console.log('VAPID PUBLIC:', process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY)
-console.log('VAPID PRIVATE:', process.env.VAPID_PRIVATE_KEY)
-
 webpush.setVapidDetails(
-  'mailto:ton.email@domaine.com',
+  'mailto:morgan.phemba@gmail.com',
   process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
   process.env.VAPID_PRIVATE_KEY!
 )
