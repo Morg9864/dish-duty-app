@@ -1,7 +1,7 @@
 // Planning fixe de la vaisselle
 const dishSchedule = {
-  1: "Dylan", // Lundi
-  2: "Morgan", // Mardi
+  1: "Morgan", // Lundi
+  2: "Dylan", // Mardi
   3: "Bryan", // Mercredi
   4: "Dylan", // Jeudi
   5: "Maman", // Vendredi
@@ -36,7 +36,7 @@ export function getWeekDays(): Date[] {
   const daysToMonday = currentDay === 0 ? -6 : 1 - currentDay
   monday.setDate(today.getDate() + daysToMonday)
 
-  const weekDays = []
+  const weekDays: Date[] = []
   for (let i = 0; i < 7; i++) {
     const day = new Date(monday)
     day.setDate(monday.getDate() + i)
