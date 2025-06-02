@@ -4,7 +4,8 @@ self.addEventListener('push', function (event) {
     const data = event.data.json();
     const options = {
       body: data.body,
-      icon: '/android-chrome-192x192.png',
+      icon: data.icon || '/icon-192x192.png',
+      badge: '/badge.png',
       vibrate: [200, 100, 200],
       actions: [
         {
