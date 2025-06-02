@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Dish Duty',
-  description: 'Dish Duty',
+  description: "L'application web qui met fin aux disputes de vaisselle, pour de bon!",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },

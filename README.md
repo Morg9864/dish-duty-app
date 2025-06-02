@@ -15,8 +15,12 @@
 
 ## ✨ Présentation
 
-**Dish Duty** est une application web moderne, responsive et ultra fluide, pensée pour organiser la corvée de vaisselle dans la bonne humeur.  
-Notifications push, planning intelligent, design mobile & desktop, tout y est pour une expérience utilisateur au top !
+**Dish Duty** révolutionne la gestion de la vaisselle à la maison !
+
+Fini les « C’est à qui ? », les oublis et les tensions : l’application attribue chaque jour la corvée à la bonne personne, envoie des notifications push, et motive toute la famille avec des messages positifs.
+
+Pensée pour être ultra fluide, moderne et agréable, Dish Duty s’adapte à tous les écrans (mobile, tablette, desktop) et rend la corvée… presque fun !
+
 
 ---
 
