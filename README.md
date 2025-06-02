@@ -17,9 +17,9 @@
 
 **Dish Duty** révolutionne la gestion de la vaisselle à la maison !
 
-Fini les « C’est à qui ? », les oublis et les tensions : l’application attribue chaque jour la corvée à la bonne personne, envoie des notifications push, et motive toute la famille avec des messages positifs.
+Fini les « C'est à qui ? », les oublis et les tensions : l'application attribue chaque jour la corvée à la bonne personne, envoie des notifications push, et motive toute la famille avec des messages positifs.
 
-Pensée pour être ultra fluide, moderne et agréable, Dish Duty s’adapte à tous les écrans (mobile, tablette, desktop) et rend la corvée… presque fun !
+Pensée pour être ultra fluide, moderne et agréable, Dish Duty s'adapte à tous les écrans (mobile, tablette, desktop) et rend la corvée… presque fun !
 
 
 ---
@@ -198,7 +198,26 @@ npx web-push generate-vapid-keys
 - [Ouvre une issue sur GitHub](https://github.com/Morg9864/dish-duty-app/issues)
 - Contacte-moi sur [morgan.phemba@gmail.com](mailto:morgan.phemba@gmail.com)
 
----
+## Licence
+
+Ce projet est sous licence NonCommercial Software License.
+
+Copyright (c) 2024 Morgan Phemba
+
+Permission est accordée, gratuitement, à toute personne obtenant une copie de ce logiciel et des fichiers de documentation associés (le « Logiciel »), d’utiliser, copier et modifier le Logiciel **uniquement à des fins personnelles et non commerciales**, sous réserve des conditions suivantes :
+
+1. **Interdiction de toute utilisation commerciale**  
+   Le Logiciel, en tout ou en partie, **ne doit pas** être utilisé, distribué, sous-licencié ou vendu pour un quelconque avantage commercial, une compensation monétaire ou de toute autre manière générant un revenu direct ou indirect. Toute exploitation dépassant l’expérimentation privée, l’apprentissage ou la personnalisation à titre personnel est strictement interdite.
+
+2. **Attribution du code source**  
+   Si tu distribues des versions modifiées du Logiciel (toujours à des fins **non commerciales**), tu dois conserver cette notice de copyright et le texte de licence dans toutes les copies ou parties substantielles du Logiciel.
+
+3. **Absence de garantie**  
+   LE LOGICIEL EST FOURNI « TEL QUEL », SANS AUCUNE GARANTIE EXPLICITE OU IMPLICITE, Y COMPRIS MAIS SANS S’Y LIMITER AUX GARANTIES DE QUALITÉ MARCHANDE, D’ADÉQUATION À UN USAGE PARTICULIER ET D’ABSENCE DE CONTREFAÇON. EN AUCUN CAS, L’AUTEUR OU LE TITULAIRE DU DROIT D’AUTEUR NE POURRA ÊTRE TENU RESPONSABLE DE TOUTE RÉCLAMATION, DOMMAGE OU AUTRE RESPONSABILITÉ, DANS UNE ACTION CONTRACTUELLE, DÉLICTUELLE OU AUTRE, PROVENANT DE, HORS DE OU EN LIEN AVEC LE LOGICIEL OU SON UTILISATION.
+
+4. **Résiliation**  
+   Toute tentative d’utilisation ou de distribution du Logiciel en violation de cette licence (y compris toute utilisation commerciale) entraînera la résiliation automatique de tes droits en vertu de cette licence. Dès lors, tu dois cesser toute utilisation et détruire toutes les copies en ta possession.
+
 
 <p align="center">
   <img src="./public/dish-duty-logo.png" alt="Dish Duty Logo" width="80" />
