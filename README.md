@@ -106,6 +106,9 @@ cd dish-duty-app
 # Copie le .env.example et configure tes clés
 cp .env.example .env.local
 
+# Génère les clés VAPID pour les notifications push
+npx web-push generate-vapid-keys
+
 # Lance le serveur de dev
 (p)npm run dev
 ```
