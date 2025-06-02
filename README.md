@@ -218,6 +218,7 @@ Permission est accordée, gratuitement, à toute personne obtenant une copie de 
 4. **Résiliation**  
    Toute tentative d’utilisation ou de distribution du Logiciel en violation de cette licence (y compris toute utilisation commerciale) entraînera la résiliation automatique de tes droits en vertu de cette licence. Dès lors, tu dois cesser toute utilisation et détruire toutes les copies en ta possession.
 
+---
 
 <p align="center">
   <img src="./public/dish-duty-logo.png" alt="Dish Duty Logo" width="80" />
