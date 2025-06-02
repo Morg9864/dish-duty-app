@@ -7,8 +7,8 @@ import DailyView from "@/components/daily-view"
 import WeeklyView from "@/components/weekly-view"
 import Image from "next/image"
 import { Toaster, toast } from 'react-hot-toast'
-import MobileLayout from "@/components/MobileLayout"
-import DesktopLayout from "@/components/DesktopLayout"
+import MobileLayout from "@/components/mobile-layout"
+import DesktopLayout from "@/components/desktop-layout"
 import { useIsMobile } from "@/hooks/use-mobile"
 
 function urlBase64ToUint8Array(base64String: string) {
