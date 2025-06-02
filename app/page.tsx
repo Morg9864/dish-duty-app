@@ -58,18 +58,6 @@ export default function Home() {
     }
   }
 
-  async function sendNotifVaisselle() {
-    if (subscription) {
-      await fetch('/api/push', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: "À ton tour de faire la vaisselle" }),
-      })
-    } else {
-      alert("Abonne-toi d'abord aux notifications !")
-    }
-  }
-
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Toaster />
@@ -160,15 +148,6 @@ export default function Home() {
             >
               <Calendar className="w-5 h-5" />
               <span className="text-xs font-medium">Semaine</span>
-            </motion.button>
-
-            <motion.button
-              onClick={sendNotifVaisselle}
-              className="flex flex-col items-center gap-1 px-4 py-2 rounded-lg transition-colors bg-blue-600 text-white hover:bg-blue-700"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <span className="text-xs font-medium">Test notif</span>
             </motion.button>
           </div>
         </div>
