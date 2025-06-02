@@ -3,6 +3,8 @@
 import { motion } from "framer-motion"
 import { User, CalendarIcon, Droplet, House, Utensils } from "lucide-react"
 import { getDishPerson, formatDate, getDayName } from "@/lib/utils"
+import { useEffect, useState } from "react"
+import { Skeleton } from "@/components/ui/skeleton"
 
 const phrasesMotivantes = [
   "Une cuisine propre, c'est un foyer heureux 🏠",
@@ -23,6 +25,7 @@ const phrasesMotivantes = [
 ]
 
 export default function DailyView() {
+  const [isLoading, setIsLoading] = useState(true)
   const today = new Date()
   const person = getDishPerson(today)
   const dayName = getDayName(today)
@@ -34,6 +37,21 @@ export default function DailyView() {
     Bryan: "from-blue-500 to-blue-600",
     Dylan: "from-orange-500 to-orange-600",
     Maman: "from-pink-500 to-pink-600",
+  }
+
+  useEffect(() => {
+    const t = setTimeout(() => setIsLoading(false), 1000)
+    return () => clearTimeout(t)
+  }, [])
+
+  if (isLoading) {
+    return (
+      <div className="space-y-6">
+        <Skeleton className="h-28 w-full mb-2" />
+        <Skeleton className="h-44 w-full mb-2" />
+        <Skeleton className="h-32 w-full" />
+      </div>
+    )
   }
 
   return (

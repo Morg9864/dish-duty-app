@@ -3,8 +3,11 @@
 import { motion } from "framer-motion"
 import { CalendarIcon } from "lucide-react"
 import { getDishPerson, getWeekDays, getDayName } from "@/lib/utils"
+import { useEffect, useState } from "react"
+import { Skeleton } from "@/components/ui/skeleton"
 
 export default function WeeklyView() {
+  const [isLoading, setIsLoading] = useState(true)
   const weekDays = getWeekDays()
 
   const personColors = {
@@ -16,6 +19,23 @@ export default function WeeklyView() {
 
   const today = new Date()
   const todayStr = today.toDateString()
+
+  useEffect(() => {
+    const t = setTimeout(() => setIsLoading(false), 1000)
+    return () => clearTimeout(t)
+  }, [])
+
+  if (isLoading) {
+    return (
+      <div className="space-y-6">
+        <Skeleton className="h-16 w-full mb-2" />
+        {[...Array(7)].map((_, i) => (
+          <Skeleton key={i} className="h-16 w-full mb-2" />
+        ))}
+        <Skeleton className="h-24 w-full" />
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-6">
