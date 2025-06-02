@@ -144,7 +144,7 @@ npx web-push generate-vapid-keys
   mobile-layout.tsx       # Layout mobile
   daily-view.tsx          # Vue quotidienne
   weekly-view.tsx         # Vue hebdomadaire
-  PushNotifications.tsx   # Gestion des notifications push
+  push-notifications.tsx  # Gestion des notifications push
   theme-provider.tsx      # Gestion du thème (dark/light)
   /ui/                    # Composants UI réutilisables (skeleton, button, etc.)
 
