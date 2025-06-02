@@ -6,9 +6,28 @@ import { getDishPerson } from './utils'
 
 const MONGO_URI = process.env.MONGO_URI!
 
-if (!mongoose.connection.readyState) {
-  mongoose.connect(MONGO_URI, { dbName: 'data' })
+// Configuration de la connexion MongoDB
+mongoose.set('strictQuery', true)
+
+// Fonction pour établir la connexion
+async function connectDB() {
+  try {
+    if (mongoose.connection.readyState === 0) {
+      await mongoose.connect(MONGO_URI, {
+        dbName: 'data',
+        serverSelectionTimeoutMS: 5000,
+        socketTimeoutMS: 45000,
+      })
+      console.log('MongoDB connecté avec succès')
+    }
+  } catch (error) {
+    console.error('Erreur de connexion MongoDB:', error)
+    throw error
+  }
 }
+
+// Connexion initiale
+connectDB()
 
 webpush.setVapidDetails(
   'mailto:morgan.phemba@gmail.com',
