@@ -100,8 +100,14 @@ Pensée pour être ultra fluide, moderne et agréable, Dish Duty s'adapte à tou
 
 ## 🧑‍💻 Installation & développement
 
-```bash
-git clone https://github.com/ton-utilisateur/dish-duty-app.git
+```bash 
+# Clone le dépôt (SSH recommandé)
+git clone git@github.com:Morg9864/dish-duty-app.git
+
+# Clone le dépot (avec HTTPS si tu préfères)
+git clone https://github.com/Morg9864/dish-duty-app.gitµ
+
+# Accède au dossier du projet
 cd dish-duty-app
 
 # Installe les dépendances
